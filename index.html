@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Umbra by JorgeANino</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Umbra</h1>
+        <h2>Java based 2D game.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/JorgeANino/Umbra/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/JorgeANino/Umbra/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/JorgeANino/Umbra" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h2>
+<a id="welcome-to-umbra" class="anchor" href="#welcome-to-umbra" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to Umbra</h2>
+
+<p>Java based 2D game. (Animations will be changed in further versions.)</p>
+
+<h2>
+<a id="creators" class="anchor" href="#creators" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creators:</h2>
+
+<ul>
+<li>Jorge Alberto Niño Cabal.</li>
+<li>Christian Reynaldo López González.</li>
+</ul>
+
+<h2>
+<a id="code-explanation" class="anchor" href="#code-explanation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code explanation.</h2>
+
+<p>Note for the reader: MC belong to the initials of MainCharacter, and the term “hit points” (hp) is only a synonym for health points of the Characters. Hitbox is also a name for the area in which a character, enemy, hearts or doors can be touched. Also, sprite is the name of the characters, background, hearts ,and doors images.</p>
+
+<h2>
+<a id="setters" class="anchor" href="#setters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setters:</h2>
+
+<p>There are several setters so they won’t be explained to the reader, but they all can change the value of instance variables (characteristics) of the characters.</p>
+
+<h2>
+<a id="getters" class="anchor" href="#getters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getters:</h2>
+
+<p>There are several getters so they won’t be explained to the reader, but they all return the value of instance variables (characteristics) of the characters.</p>
+
+<h2>
+<a id="1-superclass-character" class="anchor" href="#1-superclass-character" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. SUPERCLASS Character:</h2>
+
+<p>Character is the class that will create the enemies(FinalBoss, and Enemy), and the MainCharacter.</p>
+
+<ul>
+<li>Instance variables:
+● protected int hp: Defines the life hit points of the characters instantiated in the game.</li>
+</ul>
+
+<p>● protected String name: Defines the name of the character.</p>
+
+<p>● protected int power: Defines the damage the character can do.</p>
+
+<p>● protected int x: Defines the coordinate x of the character.</p>
+
+<p>● protected int y: Defines the coordinate y of the character.</p>
+
+<p>● protected int size: Defines the size of the character.</p>
+
+<p>● protected Rectangle hitbox: Object from the class hitbox defines the area in which a character can be intersected.</p>
+
+<p>● protected int knockback: Defines the amount of distance that the character is pushed back when attacked.</p>
+
+<ul>
+<li>Constructors:
+● public Character(): This method creates an object with default instance variables values.</li>
+</ul>
+
+<p>● public Character(int hp, String name, int power, int x, int y, int size, int knocback): This constructor creates an object with given instance variables values. It can give initial: name, hit points, x, y, size, knockback ,and power to the enemies (FinalBoss, and Enemy) and the MC. Also instantiates the hitbox depending</p>
+
+<ul>
+<li>Methods:
+● This class doesn’t uses more methods than the setters and getters.</li>
+</ul>
+
+<h2>
+<a id="1---subclass-maincharacter" class="anchor" href="#1---subclass-maincharacter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.   SUBCLASS MainCharacter:</h2>
+
+<p>MainCharacter defines the Character that the user will control in the program. </p>
+
+<ul>
+<li>Instance Variables:
+● Inherits variables from Superclass Character.</li>
+</ul>
+
+<p>● private int lives: This variable represents the number of lives the MainCharacter will have.</p>
+
+<p>● private boolean gender: This variable will define the gender of the MC, if it is false it will be a male character, and if it’s true it will be a female character.</p>
+
+<p>● private Double position: Defines the position where the character is moving (left, right, up, down). Helps us to know when to change the sprite of the MC.</p>
+
+<p>● private int pressed: Defines an integer that counts when the user presses an arrow, it counts from 1 to 2 and then restarts. It helps us to know when to change the sprite of the MC.</p>
+
+<p>● private boolean attacked: Defines when the MainCharacter is being attacked or not.</p>
+
+<p>● private boolean immune: This variable helps us make the Character inmune for 3 seconds (Aprox.) after being attacked.</p>
+
+<p>● private int speed: Defines the speed of the character.</p>
+
+<ul>
+<li>Constructors:</li>
+</ul>
+
+<p>● public MainCharacter(): This constructor will create an object with default instance variables values.</p>
+
+<p>● public MainCharacter(int hp, String name, int power, int lives, boolean gender, int x, int y, int size): This constructor creates an object with given instance variable values. It will give a starting value for the MainCharacter hitpoints, name, power, lives, gender, x, y, speed ,and size. Also, it will instantiate the hitbox using the super class.</p>
+
+<ul>
+<li>Methods:<br>
+</li>
+</ul>
+
+<p>● Setters/Getters.</p>
+
+<p>● public void paint(Graphics g) throws IOException: This method paints the character depending of its gender, if it is attacked, and depending of the direction (position) he is walking to. Also, it will display MC’s life, and his name.</p>
+
+<h2>
+<a id="2-subclass-finalboss" class="anchor" href="#2-subclass-finalboss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. SUBCLASS FinalBoss:</h2>
+
+<p>This class defines the most powerful enemy the MC can have, it will have more hit points, more speed, and more power than the other enemies. This enemy have to be defeated so the MC can walk through the door.</p>
+
+<ul>
+<li>Instance Variables:</li>
+</ul>
+
+<p>● Inherits instance variables from the super class Character.</p>
+
+<p>● private Double position: Defines the position in which the boss is standing (Looking to left, right, up, down). Helps us display the correct sprite of the character.</p>
+
+<p>● private int direction: Defines the direction to which the boss is walking to. Helps us display the correct sprite of the character.</p>
+
+<p>● private int speed: Defines the speed of the Final Boss.</p>
+
+<p>● private int move: As the MC variable “pressed” it helps us count the movements of the enemy to display the correct sprite.</p>
+
+<ul>
+<li>Constructors:
+● public FinalBoss(): default constructor, gives default values to the instance variables. </li>
+</ul>
+
+<p>● public FinalBoss(int hp, Weapon weapon, Double power, Equipment equipment, Room room, String name): This constructor gives initial values to the object created, so the FinalBoss created will have a given hp, name, power, x, y, size, speed, and knockback. Position, direction and move will always have given values. </p>
+
+<ul>
+<li>Methods: 
+● Setters and Getters.</li>
+</ul>
+
+<p>● private void paint(Graphics g) throws IOException: This method displays the FinalBoss depending of his position. Also, his name will be displayed and his hitpoints bar.</p>
+
+<h2>
+<a id="3-subclass-enemy" class="anchor" href="#3-subclass-enemy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. SUBCLASS Enemy:</h2>
+
+<p>This class defines the weakest enemy the MC can have, it will have normal hit points, normal power, and normal speed. This enemy should be defeated so the MC can walk through the doors.</p>
+
+<ul>
+<li>Instance Variables:
+● Inherits instance variables from the super class Character.</li>
+</ul>
+
+<p>● private Double position: Defines the position in which the boss is standing (Looking to left, right, up, down). Helps us display the correct sprite of the character.</p>
+
+<p>● private int direction: Defines the direction to which the boss is walking to. Helps us display the correct sprite of the character.</p>
+
+<p>● private int speed: Defines the speed of the Final Boss.</p>
+
+<p>● private int move: As the MC variable “pressed” it helps us count the movements of the enemy to display the correct sprite.</p>
+
+<ul>
+<li>Constructors:</li>
+</ul>
+
+<p>● public Enemy(): default constructor, gives default values to the instance variables.</p>
+
+<p>● public Enemy(int hp, Weapon weapon, Double power, Equipment equipment, Room room, String name): This constructor gives initial values to the object created, so the Enemy created will have a given hp, name, power, x, y, size, speed, and knockback. Position, direction and move will always have given values. </p>
+
+<ul>
+<li>Methods: 
+● Setters and Getters.</li>
+</ul>
+
+<p>● private void paint(Graphics g) throws IOException: This method displays the Enemy depending of his position. Also, his name will be displayed and his hitpoints bar.</p>
+
+<h2>
+<a id="2-class-enemyroom" class="anchor" href="#2-class-enemyroom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. CLASS EnemyRoom:</h2>
+
+<p>This class will represent the room where enemies appear.</p>
+
+<ul>
+<li>Instance Variables:
+● protected static final long serialVersionUID = 1L: Version of the game.</li>
+</ul>
+
+<p>● protected BufferedImage img: Defines the image that is displayed using the method paint.</p>
+
+<ul>
+<li><p>Constructors:
+● public Room(): default constructor, gives default values to the instance variables and to the collections.</p></li>
+<li><p>Methods:
+● Setters and getters.</p></li>
+</ul>
+
+<p>● public void paint(Graphics g): Paints the room in which the enemies appear.</p>
+
+<h2>
+<a id="3-class-treasureroom" class="anchor" href="#3-class-treasureroom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. CLASS TreasureRoom:</h2>
+
+<pre><code>This class displays the treasure room that will contain all the treasures that the character can grab.
+</code></pre>
+
+<ul>
+<li>Instance Variables:</li>
+</ul>
+
+<p>● Inherits a BufferedImage variable from Room.</p>
+
+<p>● private Weapon weapon: Stores the Weapon data value that the MC can grab to improve attack damage. (power)</p>
+
+<ul>
+<li>Constructors:</li>
+</ul>
+
+<p>● public TreasureRoom(): default constructor, gives default values to the instance variables, in this case the weapon.</p>
+
+<ul>
+<li>Methods:
+● Setters and getters.</li>
+</ul>
+
+<p>● public void paint(Graphics g): Paints the room in which the treasures appear, and the weapon.</p>
+
+<h2>
+<a id="4-class-bossroom" class="anchor" href="#4-class-bossroom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. CLASS BossRoom:</h2>
+
+<p>This class will display the background of the room where bosses appear. </p>
+
+<ul>
+<li>Instance Variables:</li>
+</ul>
+
+<p>● public BufferedImage img: Will open the image that will be displayed in the game. In this case the image is the background of the BossRoom.
+Constructors:</p>
+
+<p>● public BossRoom(): Default constructor, gives default values to the instance variables. 
+    Methods:
+● Setters and getters.</p>
+
+<p>● public void paint(Graphics g) throws IOException: This method will display the background of the BossRoom.</p>
+
+<h2>
+<a id="5-class-door" class="anchor" href="#5-class-door" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. CLASS Door:</h2>
+
+<p>This class is used by the MC to walk from Room to Room, if the room is clear (It will be checked in the Canvas or JPanel) the doors will open, and if the MC touches a door, he will “walk through it” and appear in a new one (Randomly chosen). </p>
+
+<ul>
+<li>Instance Variables:</li>
+</ul>
+
+<p>● private boolean open: This attribute stores false boolean while there are enemies or treasures in the actual Room.</p>
+
+<p>● private int position: Defines the position where the door is standing (left, right, top, bottom). It helps us print the right door depending on the position.</p>
+
+<p>● private int x: Defines the x coordinate of the door.</p>
+
+<p>● private int y: Defines the y coordinate of the door.</p>
+
+<p>● private int height: Defines the height of the door.</p>
+
+<p>● private int width: Defines the width of the door.</p>
+
+<p>● private Rectangle hitbox: The fines the rectangle that contains the door, if it is touched by the MC and the room is clear, he can walk through it.</p>
+
+<p>● private BufferedImage img: Variable that carries the image of the doors.</p>
+
+<ul>
+<li>Constructors:
+● public Door(): Default constructor, gives default values to the instance variables.</li>
+</ul>
+
+<p>● public Door(boolean open, int x, int y, int height, int width, int position ): This constructor allows us to give initial values to all the variables.</p>
+
+<p>● public Door(int x, int y, int pos): This constructor allows us to make the doors more quickly because they all have the same height and width. It allows us to create objects of this class only by setting a position, an x and an y coordinate.</p>
+
+<ul>
+<li>Methods:</li>
+</ul>
+
+<p>● Setters and getters.</p>
+
+<p>● public void paint(Graphics g) throws IOException: This method paints the doors, depending if they are open or 
+close. Also, depending on the position they are declared to. </p>
+
+<h2>
+<a id="6-class-weapon" class="anchor" href="#6-class-weapon" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. CLASS Weapon:</h2>
+
+<p>This class represents the weapons that can be generated in the game, and it is another item that can be obtained by the MC. It only appears in the treasure room.</p>
+
+<ul>
+<li>Instance Variables:</li>
+</ul>
+
+<p>● private int atk: This instance variable will hold the attack points that will be increased to the MC if he grabs a Weapon.
+● private String name: This instance variable will hold the name of the weapon instantiated.</p>
+
+<p>● private int x: This variable will hold the X coordinate of the weapon.</p>
+
+<p>● private int y: This variable will hold the Y coordinate of the weapon.</p>
+
+<p>● private int height: This variable will hold the height of the weapon.</p>
+
+<p>● private int width: This variable will hold the width of the weapon.</p>
+
+<p>● private Rectangle r: This variable will hold the area that surrounds the weapon, if the character touches it, the weapon will cause something on him. </p>
+
+<p>● private BufferedImage img:  This variable saves the image of the weapon.</p>
+
+<ul>
+<li>Constructors:</li>
+</ul>
+
+<p>● public Weapon(): Default constructor, gives default values to the instance variables.</p>
+
+<p>● public Weapon(int atk, String name, int x, int y, int height, int width): This constructor will give initial values to the attack, name, x and y coordinates, height and width.</p>
+
+<p>● public Weapon(int atk, int x, int y): This constructor helps us create weapon objects easily, by only giving the attack, x and y coordinates.</p>
+
+<ul>
+<li>Methods:</li>
+</ul>
+
+<p>● Setters and getters.</p>
+
+<p>● public void paint(Graphics g) throws IOException: This method paints the weapon in the treasure room.</p>
+
+<h2>
+<a id="7-class-heart" class="anchor" href="#7-class-heart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. CLASS Heart</h2>
+
+<p>This class helps us display a representation of the MC’s lives, and also an object that the MC can grab to get more lives. (MC can’t have more than 5)</p>
+
+<ul>
+<li>Instance Variables:
+● private int x: This variable holds the X coordinate of the heart.</li>
+</ul>
+
+<p>● private int y: This variable holds the Y coordinate of the heart.</p>
+
+<p>● private int size: This variable holds the size of the heart. </p>
+
+<p>● private Rectangle newhitbox: This variable will hold the area that surrounds the heart, if the MC touches it the MC can get more lives.</p>
+
+<ul>
+<li>Constructors:</li>
+</ul>
+
+<p>● public Heart(): Default constructor, gives default values to the instance variables.</p>
+
+<p>● public Heart(int x, int y, int size): This constructor allow us to give initial values to the x and y coordinates, and to the size of the hearts.</p>
+
+<ul>
+<li>Methods:</li>
+</ul>
+
+<p>● Setters and getters.</p>
+
+<p>● public void paint(Graphics g) throws IOException: This method paints the Heart in the treasure room.</p>
+
+<h2>
+<a id="8-class-slash" class="anchor" href="#8-class-slash" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8. CLASS Slash</h2>
+
+<p>This class allows us to display the MC attacks when the user presses SPACEBAR, we made it in a way that we can set the distance of the attack and the velocity.</p>
+
+<ul>
+<li>Instance Variables:
+● private int x: This variable holds the X coordinate of the attack effect.</li>
+</ul>
+
+<p>● private int y: This variable holds the Y coordinate of the attack effect.</p>
+
+<p>● private int size: This variable holds the size of the attack effect. </p>
+
+<p>● private int vel: This variable represents the speed of the attack effect.</p>
+
+<p>● private int pos: This variable represents the position of the attack effect.</p>
+
+<p>● private int sizeAtk: This variable represents the size of the attack effect, how much space it can occupy. </p>
+
+<p>● private Rectangle hitBox: Represents the area of the attack, if an enemy is touched by it, his hitpoints will get lower.</p>
+
+<p>● private BufferedImage image: This variable holds the image of the attack.
+Constructors:
+● public Slash(): Default constructor, gives default values to the instance variables.</p>
+
+<p>● public Slash(int x, int y): This constructor allow us to give initial values to the x and y coordinates.</p>
+
+<ul>
+<li>Methods:</li>
+</ul>
+
+<p>● Setters and getters.</p>
+
+<p>● public void paint(Graphics g) throws IOException: This method paints the attack when the user presses SPACEBAR and depending on the position of the MC.</p>
+
+<h2>
+<a id="9-class-menu" class="anchor" href="#9-class-menu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9. CLASS Menu</h2>
+
+<p>This class allows us to set an image for the menu/ or for the ending of the game, as we don’t know how to restart the game yet without having to close the Java window, we use it as an ending image, that only is displayed when the MC dies. </p>
+
+<ul>
+<li>Instance Variables:</li>
+</ul>
+
+<p>● No instance variables.</p>
+
+<ul>
+<li>Constructors:</li>
+</ul>
+
+<p>● public Menu(): Default constructor.</p>
+
+<pre><code>Methods:
+</code></pre>
+
+<p>● No setters and getters.</p>
+
+<p>● public void paint(Graphics g) throws IOException: This method will paint “YOU DIED” if the MC loses all of his lives. </p>
+
+<h2>
+<a id="10-class-mycanvas-extends-jpanel-and-implements-keylistener-and-actionlistener" class="anchor" href="#10-class-mycanvas-extends-jpanel-and-implements-keylistener-and-actionlistener" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10. CLASS MyCanvas extends JPanel and implements KeyListener and ActionListener.</h2>
+
+<ul>
+<li><p>This class represents the game itself, it implements Listener Interfaces that get when the user does something in the game, It has ArrayLists of enemies, doors, lives, and treasures. The ArrayLists holds all the items of the games, except the MC. The Canvas holds counters for then the MC is attacked, and a Timer that repeats the ActionPerformed method each 200 ms. It also carries the starting room, booleans to indicate when to add: doors, enemies, lives, randomLives. Booleans to know when to close and open the doors. Booleans to indicate when the room is clear, counters for the Enemies and Bosses killed. Also, it hold rectangles for the limits of the game window, rectangles for the doors, rectangles for the enemies and for the MC. By the other side it has the rooms and each room is accessed by a number that is random.</p></li>
+<li><p>Instance Variables:
+● private static final long serialVersionUID = 1L: version of the game.</p></li>
+</ul>
+
+<p>● private ArrayList enemies: Holds all the enemies (Bosses or normal Enemies).</p>
+
+<p>● protected ArrayList DoorList: Holds the doors.</p>
+
+<p>● protected ArrayList lives: Holds the Hearts that represents the lives of the MC.</p>
+
+<p>● protected ArrayList treasures: Holds the Hearts that the MC can grab in the treasure room.</p>
+
+<p>● private MainCharacter MC: Represents the Main Character.</p>
+
+<p>● private Timer time: A timer to repaint the game each 200 ms.</p>
+
+<p>● private int Room: Holds the value of the room in which the MC is.</p>
+
+<p>● private int counter: Counter used to count 3 seconds when the MC is attacked, it is used to make him immune during that period of time.</p>
+
+<p>● private int start: Flag used to start the MC-Attacked counter.</p>
+
+<p>● private int EK: Counter of the Enemies Killed.</p>
+
+<p>● private int BK: Counter of the Bosses Killed.</p>
+
+<p>● private int proPos: Holds the position of the projectile or “the attack” of the MC.</p>
+
+<p>● private int roomspassed: Counts the rooms that are passed by the MC, this allow us to make the game harder each time the MC crosses another room.</p>
+
+<p>● private boolean addingEnemies, addingDoors, addingLives, proFlag, roomClear, randomLives, pickedItems: This are all boolean flags variables represented by their names.</p>
+
+<p>● private Rectangle e, m, top, bot, left, right, rdleft, rdright, rdup, rddown: This are the Rectangle objects that represents the hitbox of the doors, limits, enemies and the MC.</p>
+
+<p>● private TreasureRoom room1: Object of the treasure room, that will be setted to room number 1.</p>
+
+<p>● private EnemyRoom room2: Object of the EnemyRoom, that will be setted to room number 2.</p>
+
+<p>● private BossRoom room3: Object of the BossRoom, that will be setted to room number 3.</p>
+
+<p>● private Menu menu: Object of the Menu, it allow us to display when the MC died in this case. (It can be changed) It is setted to number 0.</p>
+
+<p>● private Slash pro: Represents the attack/projectile of the MC.</p>
+
+<ul>
+<li><p>Constructors:
+● public MyCanvas(): Sets all the instance variables for the project to work correctly, instantiates all the objects, arraylists, booleans, etc. Also it sets the listeners to the Canvas.</p></li>
+<li><p>Methods:
+● No setters and getters.</p></li>
+</ul>
+
+<p>● public void addEnemies(int enem, int bosses, boolean boss, boolean ene): Allow us to add Enemies to the room, depending if we want enemies or bosses, and this depends on the Room the MC gets in. Room 2 =  Enemies, Room 3 = Bosses. More appear depending on the number of rooms the MC has passed.</p>
+
+<p>● public void enemiesMoving(): Generates the random movement of the enemies.</p>
+
+<p>● public void mcAttacked(): Allow us to check if the MC is attacked, if he is attacked his hit points decreases, and if he loses all of his hit points, a life is subtracted from his lives. If he already lost all his lives, he dies and the menu “YOU DIED” is displayed. </p>
+
+<p>● public void movProyectil(): Allow us to move the projectile depending on the position of the attack.</p>
+
+<p>● public void addDoors(): Generates the doors of the rooms.</p>
+
+<p>● public void walkThroughDoor(): When the doors are open, it checks if the MC is intersecting a Door Rectangle, if he is it makes him appear in another randomly generated Room. </p>
+
+<p>● public void openDoors(): Opens the doors when the rooms are clear of enemies and treasures.</p>
+
+<p>● public void closeDoors(): Closes the doors.</p>
+
+<p>● public void isRoomClear(): Checks if the room is clear of enemies and treasures.</p>
+
+<p>● public void paint(Graphics g): Paints all the components of the game in the JPanel/Canvas. </p>
+
+<p>● public void addLives(): Adds the lives to the MC when he grabs a Heart object, and it also adds the images of the Hearts to the low left of the window. </p>
+
+<p>● public void addRandomLives(): When the MC appears in a treasure room this method is called to create random hearts only if the MC has less than 5 lives.</p>
+
+<h2>
+<a id="interfaces" class="anchor" href="#interfaces" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interfaces:</h2>
+
+<p>○ ActionListeners:
+■ public void ActionPerformed(ActionEvent arg0): This repeats all the methods that checks the game, and it has different functions depending on the room the MC appears in. It can add random items if the MC appears in the Treasure room, and add bosses and/or enemies if the MC appears in EnemyRoom or BossRoom. Also, if the MC dies and goes to room 0 (which displays the “YOU DIED” message, the MC will become null and disappear. Also it checks if the doors should be open, if the MC is attacking, if the MC is attacked, if the enemies are attacked, if the room is clear and the most important, it uses the method that generates the random movement of the enemies. This method has the counter that counts 3 seconds (Aprox.) in which when the character is attacked, he is immune. 
+○ KeyListeners:
+■ public void KeyPressed(KeyEvent arg0): Does something depending of the keypressed: The space bar is for the attack of the MC and the arrows are for movement. It also helps us determine the position of the MC to change the prite.
+■ public void KeyReleased(KeyEvent arg0): When an arrow is released it makes the MC sprite change into a steady position.
+■ public void KeyTyped(KeyEvent arg0): Not used.</p>
+
+<h2>
+<a id="11-class-mywindow-extends-jframe" class="anchor" href="#11-class-mywindow-extends-jframe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11. CLASS MyWindow extends JFrame</h2>
+
+<p>This class allows us to use the Canvas and display it in the JFrame, it helps us locate the canvas in a BorderLayout and to instantiate the canvas.</p>
+
+<ul>
+<li>Instance Variables:
+● MyCanvas canvas: The canvas with the core of the game.
+● private static final long serialVersionUID: version of the game.
+Constructors:
+● public MyWindow(): Instantiates the super class variables to default, instantiates the canvas and adds it to the center of the BorderLayout.</li>
+</ul>
+
+<h2>
+<a id="12-main" class="anchor" href="#12-main" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>12. Main</h2>
+
+<p>This class allows us to run the program. It instantiates the window with a certain visibility, size and if it is resizable.</p>
+
+<h2>
+<a id="specifications-of-the-window" class="anchor" href="#specifications-of-the-window" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Specifications of the window:</h2>
+
+<p>● Size: 500x500.
+● Visibility: true.
+● Resizable: false.
+● Exits the program on close. </p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
